@@ -156,7 +156,7 @@ nasa_api_project/
 graph LR
     API["🌌 NASA APOD API"] -->|HTTP Request| Airflow["Apache Airflow<br/>Orchestrator"]
     Airflow -->|HttpOperator| Extract["Extract Stage"]
-    Extract -->|@task| Transform["Transform Stage"]
+    Extract -->|TaskFlow API| Transform["Transform Stage"]
     Transform -->|PostgresHook| DB[("PostgreSQL<br/>Database")]
     DB -->|Query| DBeaver["🔍 DBeaver<br/>Visualization"]
     
